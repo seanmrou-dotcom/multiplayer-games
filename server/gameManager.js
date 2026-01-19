@@ -61,11 +61,12 @@ class GameManager {
     // Get initial state for game-specific properties
     const initialState = game.getState();
     
-    // Notify both players
+    // Notify both players with Firebase user IDs
     const gameFoundData = {
       gameId: gameId,
       symbol: initResult.player1.symbol,
-      opponent: player2.id,
+      opponentUid: player2.id,  // Firebase user ID
+      opponent: player2.id,      // Keep for backward compatibility
       gameType: gameType
     };
     
@@ -78,7 +79,8 @@ class GameManager {
     const gameFoundData2 = {
       gameId: gameId,
       symbol: initResult.player2.symbol,
-      opponent: player1.id,
+      opponentUid: player1.id,  // Firebase user ID
+      opponent: player1.id,      // Keep for backward compatibility
       gameType: gameType
     };
     
